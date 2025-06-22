@@ -16,6 +16,7 @@ export type Configuration = {
   DATABASE_URL: string;
   JWT_SECRET_KEY: string;
   APP_LOG_LEVEL: string;
+  API_VERSION: string;
 };
 
 let currentConfig: Configuration = DEVELOPMENT;

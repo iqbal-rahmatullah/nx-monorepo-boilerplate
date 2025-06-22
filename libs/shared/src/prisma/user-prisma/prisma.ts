@@ -1,4 +1,5 @@
 import { PrismaClient } from '@prisma/client';
+import { ServerLogger } from '../../utils';
 
 export const userPrisma = new PrismaClient({
   log: [
@@ -7,20 +8,34 @@ export const userPrisma = new PrismaClient({
       level: 'query',
     },
     {
-      emit: 'stdout',
+      emit: 'event',
       level: 'error',
     },
     {
-      emit: 'stdout',
+      emit: 'event',
       level: 'info',
     },
     {
-      emit: 'stdout',
+      emit: 'event',
       level: 'warn',
     },
   ],
 });
 
+const logger = new ServerLogger();
+
 userPrisma.$on('query', (e) => {
-  console.log(`Query: ${e.query}`);
+  logger.info(`Query: ${e.query} - Params: ${e.params}`);
+});
+
+userPrisma.$on('error', (e) => {
+  logger.error(`Error: ${e.message} - Target: ${e.target}`);
+});
+
+userPrisma.$on('info', (e) => {
+  logger.debug(`Info: ${e.message} - Target: ${e.target}`);
+});
+
+userPrisma.$on('warn', (e) => {
+  logger.warning(`Warning: ${e.message} - Target: ${e.target}`);
 });

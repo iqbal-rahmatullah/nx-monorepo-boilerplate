@@ -7,6 +7,7 @@ const DEVELOPMENT: Configuration = {
   DATABASE_URL: process.env.DATABASE_URL || '',
   JWT_SECRET_KEY: process.env.JWT_SECRET_KEY || '',
   APP_LOG_LEVEL: process.env.APP_LOG_LEVEL || 'debug',
+  API_VERSION: process.env.API_VERSION || 'v1',
 };
 
 export default DEVELOPMENT;

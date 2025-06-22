@@ -8,6 +8,7 @@ export class AppServer {
   private host: string;
   private port: number;
   private routes: Array<{ path: string; router: express.Router }>;
+  private guards: Array<express.RequestHandler> = [];
 
   constructor(host: string, port: number) {
     this.app = express();
@@ -15,6 +16,8 @@ export class AppServer {
     this.host = host;
     this.port = port;
     this.routes = [];
+
+    this.initializeGuards();
   }
 
   private initializeGuards() {
@@ -35,12 +38,18 @@ export class AppServer {
   }
 
   public addGuard(guard) {
-    this.app.use(guard);
+    this.guards.push(guard);
+  }
+
+  public initializeGuardsAdded() {
+    this.guards.forEach((guard) => {
+      this.app.use(guard);
+    });
   }
 
   public start() {
     this.initializeRoutes();
-    this.initializeGuards();
+    this.initializeGuardsAdded();
 
     this.app.listen(this.port, this.host, () => {
       this.logger.debug(

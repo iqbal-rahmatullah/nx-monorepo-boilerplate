@@ -14,9 +14,9 @@
     "@nx/esbuild": "21.2.1",
     "@nx/eslint": "21.2.1",
     "@nx/eslint-plugin": "21.2.1",
-    "@nx/express": "^21.2.1",
+    "@nx/express": "21.2.1",
     "@nx/js": "21.2.1",
-    "@nx/node": "^21.2.1",
+    "@nx/node": "21.2.1",
     "@nx/web": "21.2.1",
     "@nx/webpack": "21.2.1",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.7",
@@ -51,7 +51,8 @@
     "morgan": "^1.10.0",
     "prisma": "^6.7.0",
     "ts-node-dev": "^2.0.0",
-    "winston": "^3.17.0"
+    "winston": "^3.17.0",
+    "zod": "^3.25.67"
   },
   "prisma": {
     "schema": "./libs/shared/src/prisma"
