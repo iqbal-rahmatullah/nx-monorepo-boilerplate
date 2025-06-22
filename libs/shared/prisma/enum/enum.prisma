@@ -1,0 +1,17 @@
+enum Role {
+    USER
+    ADMIN
+}
+
+enum SessionStatus {
+    ACTIVE
+    EXPIRED
+    REVOKED
+}
+
+enum LogLevel {
+    INFO
+    WARNING
+    ERROR
+    SECURITY
+}

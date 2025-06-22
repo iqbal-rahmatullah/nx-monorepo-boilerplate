@@ -1,0 +1,27 @@
+generator user {
+    provider = "prisma-client-js"
+    output   = "../../generated/user"
+}
+
+model User {
+    id             String    @id @default(uuid())
+    email          String    @unique
+    hashedPassword String
+    fullName       String?
+    address        String?
+    role           Role      @default(USER)
+    lastLoginAt    DateTime?
+
+    ctreatedAt DateTime  @default(now())
+    updatedAt  DateTime  @updatedAt
+    deletedAt  DateTime?
+
+    posts    Post[]
+    sessions Session[]
+
+    @@unique([email, deletedAt])
+    @@index([role, deletedAt])
+    @@index([email])
+    @@index([role])
+    @@map("users")
+}

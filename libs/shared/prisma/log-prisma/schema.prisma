@@ -1,0 +1,26 @@
+generator log {
+    provider = "prisma-client-js"
+    output   = "../../generated/log"
+}
+
+model Log {
+    id           String   @id @default(uuid())
+    source       String
+    service      String
+    action       String
+    durationMs   Int?
+    userId       String?
+    actorRole    Role?
+    resouceId    String?
+    resourceType String?
+    level        LogLevel @default(INFO)
+    metadata     Json?
+    timestamp    DateTime @default(now())
+
+    @@index([userId])
+    @@index([timestamp])
+    @@index([service])
+    @@index([level])
+    @@index([resourceType, resouceId])
+    @@map("logs")
+}

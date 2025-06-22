@@ -1,0 +1,130 @@
+generator auth {
+  provider = "prisma-client-js"
+  output   = "../../generated/auth"
+}
+
+model Session {
+  id        String        @id @default(uuid())
+  userId    String
+  status    SessionStatus @default(ACTIVE)
+  token     String        @unique
+  expiresAt DateTime
+  ipAddress String?
+  userAgent String?
+
+  createdAt  DateTime  @default(now())
+  revokedAt  DateTime?
+  lastUsedAt DateTime?
+
+  user User @relation(fields: [userId], references: [id])
+
+  @@index([userId])
+  @@index([status])
+  @@index([expiresAt])
+  @@map("sessions")
+}
+
+enum Role {
+  USER
+  ADMIN
+}
+
+enum SessionStatus {
+  ACTIVE
+  EXPIRED
+  REVOKED
+}
+
+enum LogLevel {
+  INFO
+  WARNING
+  ERROR
+  SECURITY
+}
+
+generator log {
+  provider = "prisma-client-js"
+  output   = "../../generated/log"
+}
+
+model Log {
+  id           String   @id @default(uuid())
+  source       String
+  service      String
+  action       String
+  durationMs   Int?
+  userId       String?
+  actorRole    Role?
+  resouceId    String?
+  resourceType String?
+  level        LogLevel @default(INFO)
+  metadata     Json?
+  timestamp    DateTime @default(now())
+
+  @@index([userId])
+  @@index([timestamp])
+  @@index([service])
+  @@index([level])
+  @@index([resourceType, resouceId])
+  @@map("logs")
+}
+
+generator post {
+  provider = "prisma-client-js"
+  output   = "../../generated/post"
+}
+
+model Post {
+  id       String  @id @default(uuid())
+  title    String
+  content  String?
+  authorId String
+
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  deletedAt DateTime?
+
+  author User @relation(fields: [authorId], references: [id])
+
+  @@index([authorId, deletedAt])
+  @@index([createdAt])
+  @@map("posts")
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../../generated"
+}
+
+generator user {
+  provider = "prisma-client-js"
+  output   = "../../generated/user"
+}
+
+model User {
+  id             String    @id @default(uuid())
+  email          String    @unique
+  hashedPassword String
+  fullName       String?
+  address        String?
+  role           Role      @default(USER)
+  lastLoginAt    DateTime?
+
+  ctreatedAt DateTime  @default(now())
+  updatedAt  DateTime  @updatedAt
+  deletedAt  DateTime?
+
+  posts    Post[]
+  sessions Session[]
+
+  @@unique([email, deletedAt])
+  @@index([role, deletedAt])
+  @@index([email])
+  @@index([role])
+  @@map("users")
+}
