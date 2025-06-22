@@ -1,3 +1,3 @@
-import { PrismaClient } from '../../generated/post';
+import { PrismaClient } from '@prisma/client';
 
 export const postPrisma = new PrismaClient();

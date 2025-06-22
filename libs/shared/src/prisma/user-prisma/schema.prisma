@@ -1,6 +1,6 @@
 generator user {
     provider = "prisma-client-js"
-    output   = "../../generated/user"
+    // output   = "../../generated/user"
 }
 
 model User {

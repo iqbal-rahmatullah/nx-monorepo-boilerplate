@@ -1,10 +1,19 @@
 {
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
-    "module": "commonjs"
+    "module": "commonjs",
+    "target": "es6",
+    "esModuleInterop": true
   },
   "files": [],
   "include": [],
+  "exclude": [
+    "./generated/**/*.d.ts",
+    "./src/generated/auth/**/*.d.ts",
+    "./src/generated/log/**/*.d.ts",
+    "./src/generated/post/**/*.d.ts",
+    "./src/generated/user/**/*.d.ts"
+  ],
   "references": [
     {
       "path": "./tsconfig.lib.json"

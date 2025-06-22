@@ -1,6 +1,6 @@
 generator log {
     provider = "prisma-client-js"
-    output   = "../../generated/log"
+    // output   = "../../generated/log"
 }
 
 model Log {

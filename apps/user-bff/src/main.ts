@@ -1,16 +1,13 @@
-import express from 'express';
+import { AppServer, config } from '@stores/shared';
+import { errorGuard } from '@store/auth';
+import authRouter from './routes/auth_route';
 
-import { authPrisma } from '@stores/shared';
+const port = config.PORT_USER_APP || 3000;
+const host = process.env.HOST || 'localhost';
 
-const host = process.env.HOST ?? 'localhost';
-const port = process.env.PORT ? Number(process.env.PORT) : 3000;
+const server = new AppServer(host, +port);
 
-const app = express();
+server.addRoute('/api/user/v1', authRouter);
+server.addGuard(errorGuard);
 
-app.get('/', (req, res) => {
-  res.send({ message: 'Hello API' });
-});
-
-app.listen(port, host, () => {
-  console.log(`[ ready ] http://${host}:${port}`);
-});
+server.start();

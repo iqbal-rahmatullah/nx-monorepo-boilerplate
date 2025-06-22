@@ -8,9 +8,9 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "importHelpers": true,
-    "target": "es2015",
     "module": "esnext",
-    "lib": ["es2020", "dom"],
+    "lib": ["ES2022"],
+    "target": "ES2022",
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
@@ -22,5 +22,6 @@
       "@stores/shared": ["libs/shared/src/index.ts"]
     }
   },
-  "exclude": ["node_modules", "tmp"]
+  "exclude": ["node_modules", "libs/shared/src/generated/auth", "tmp"],
+  "include": ["src/**/*.ts", "package.json"]
 }

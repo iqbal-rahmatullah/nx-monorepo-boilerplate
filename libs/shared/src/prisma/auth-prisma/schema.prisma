@@ -1,6 +1,6 @@
 generator auth {
     provider = "prisma-client-js"
-    output   = "../../generated/auth"
+    // output   = "../../generated/auth"
 }
 
 model Session {

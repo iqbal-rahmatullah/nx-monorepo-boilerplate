@@ -1,6 +1,6 @@
 generator post {
     provider = "prisma-client-js"
-    output   = "../../generated/post"
+    // output   = "../../generated/post"
 }
 
 model Post {

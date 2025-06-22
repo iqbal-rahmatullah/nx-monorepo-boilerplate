@@ -1,14 +1,13 @@
-import express from 'express';
+import { AppServer, config } from '@stores/shared';
+import { errorGuard } from '@store/auth';
+import authRouter from './routes/auth_route';
 
-const host = process.env.HOST ?? 'localhost';
-const port = process.env.PORT ? Number(process.env.PORT) : 3000;
+const port = config.PORT_ADMIN_APP || 3000;
+const host = process.env.HOST || 'localhost';
 
-const app = express();
+const server = new AppServer(host, +port);
 
-app.get('/', async (req, res) => {
-  res.send({ message: 'Hello API' });
-});
+server.addRoute('/api/admin/v1', authRouter);
+server.addGuard(errorGuard);
 
-app.listen(port, host, () => {
-  console.log(`[ ready ] http://${host}:${port}`);
-});
+server.start();

@@ -10,5 +10,8 @@
         "storage": "tmp/local-registry/storage"
       }
     }
-  }
+  },
+  "external": [
+    "@prisma/client-application/index.js"
+  ]
 }

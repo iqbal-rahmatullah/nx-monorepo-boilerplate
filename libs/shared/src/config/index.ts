@@ -33,3 +33,4 @@ switch (NODE_ENV) {
 }
 
 export { currentConfig as config };
+export { AppServer } from './server/app_server';
