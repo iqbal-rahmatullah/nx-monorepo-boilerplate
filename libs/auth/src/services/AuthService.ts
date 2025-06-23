@@ -1,9 +1,13 @@
-import { User } from '@prisma/client';
+import { Role, User } from '@prisma/client';
 import { RegisterUserDTO } from '../dto/register_user_dto';
 import { IAuthService } from './IAuthService';
 import { IAuthRepository } from '../repository/IAuthRepository';
 import { AuthRepository } from '../repository/AuthRepository';
-import { BadRequestException, ConflictException } from '@stores/shared';
+import {
+  BadRequestException,
+  ConflictException,
+  ForbiddenException,
+} from '@stores/shared';
 import { compare, hash } from 'bcryptjs';
 import { LoginUserDTO } from '../dto/login_user_dto';
 import { JwtService } from '../jwt/jwt';
@@ -22,6 +26,15 @@ export class AuthService implements IAuthService {
     // Check if user with the given email exists
     if (!findUserByEmail) {
       throw new BadRequestException('User with this email does not exist', {});
+    }
+
+    // If  admin route check role user
+    if (req.body.isAdmin) {
+      if (findUserByEmail.role !== Role.ADMIN) {
+        throw new ForbiddenException(
+          'You are not authorized to access this route'
+        );
+      }
     }
 
     const isPasswordValid = await compare(

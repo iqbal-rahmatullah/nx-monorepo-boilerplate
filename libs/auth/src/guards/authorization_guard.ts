@@ -23,8 +23,6 @@ export const authorizationGuard = async (
   res: Response,
   next: NextFunction
 ) => {
-  const logger = new ServerLogger();
-
   try {
     const authRepository: IAuthRepository = new AuthRepository();
 
