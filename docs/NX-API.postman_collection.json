@@ -1,0 +1,2533 @@
+{
+	"info": {
+		"_postman_id": "f1b7aa7a-3f7e-4d3b-9361-0d6868ec4ebb",
+		"name": "NX-API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "36596668",
+		"_collection_link": "https://speeding-zodiac-123556.postman.co/workspace/My-Workspace~f260ef11-a352-4e76-8b14-cacb6df1280d/collection/36596668-f1b7aa7a-3f7e-4d3b-9361-0d6868ec4ebb?action=share&source=collection_link&creator=36596668"
+	},
+	"item": [
+		{
+			"name": "Standarisasi",
+			"item": [
+				{
+					"name": "401 Unauthorized",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{API_MOBILE}}/posts",
+							"host": [
+								"{{API_MOBILE}}"
+							],
+							"path": [
+								"posts"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Sample Response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{API_MOBILE}}/posts",
+									"host": [
+										"{{API_MOBILE}}"
+									],
+									"path": [
+										"posts"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "44"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2c-WjMEI0ZVuRmgh1ZacIVlT6ifIuI\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 23 Jun 2025 14:54:26 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Authorization token is missing\"\n}"
+						}
+					]
+				},
+				{
+					"name": "400 Validation Error",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{API_MOBILE}}/posts",
+							"host": [
+								"{{API_MOBILE}}"
+							],
+							"path": [
+								"posts"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Sample Response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{API_MOBILE}}/posts",
+									"host": [
+										"{{API_MOBILE}}"
+									],
+									"path": [
+										"posts"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "126"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"7e-DGoIu4bEskJeM5KibRs7cnrSips\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 23 Jun 2025 14:55:37 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Validation failed \",\n    \"details\": [\n        {\n            \"message\": \"Required\",\n            \"path\": [\n                \"title\"\n            ]\n        },\n        {\n            \"message\": \"Required\",\n            \"path\": [\n                \"content\"\n            ]\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "409 Conflict",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\" : \"dumyacc@example.com\",\n    \"fullName\": \"Dummy\",\n    \"password\": \"password\",\n    \"confirmPassword\": \"password\",\n    \"address\": \"Indonesia\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_MOBILE}}/auth/register",
+							"host": [
+								"{{API_MOBILE}}"
+							],
+							"path": [
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Sample Response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\" : \"dumyacc@example.com\",\n    \"fullName\": \"Dummy\",\n    \"password\": \"password\",\n    \"confirmPassword\": \"password\",\n    \"address\": \"Indonesia\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{API_MOBILE}}/auth/register",
+									"host": [
+										"{{API_MOBILE}}"
+									],
+									"path": [
+										"auth",
+										"register"
+									]
+								}
+							},
+							"status": "Conflict",
+							"code": 409,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "49"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"31-kAANIpXFuQ6I53ZbDDsMLt8aPOU\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 23 Jun 2025 14:56:35 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"User with this email already exists\"\n}"
+						}
+					]
+				},
+				{
+					"name": "401 Unauthorized for this resource",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    // \"title\": \"Test Updated\", \n    \"content\": \"ipsum dolor amet lorem\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_MOBILE}}/posts/b7fd4e82-6810-484f-a9da-3d256c3e3f93",
+							"host": [
+								"{{API_MOBILE}}"
+							],
+							"path": [
+								"posts",
+								"b7fd4e82-6810-484f-a9da-3d256c3e3f93"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "401 Not AuthorID this post",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"title\": \"Test Updated\", \n    \"content\": \"ipsum dolor amet lorem\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{API_MOBILE}}/posts/2d47cb0f-fd63-4b87-8a83-b869aa09f28f",
+									"host": [
+										"{{API_MOBILE}}"
+									],
+									"path": [
+										"posts",
+										"2d47cb0f-fd63-4b87-8a83-b869aa09f28f"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "56"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"38-lI789+8x4ddHLXIf9A0Qi9uKVLg\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 23 Jun 2025 15:28:28 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"You are not authorized to update this post\"\n}"
+						}
+					]
+				},
+				{
+					"name": "400 Only admin can access",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"dumyacc@example.com\",\n    \"password\": \"password\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_ADMIN}}/auth/login",
+							"host": [
+								"{{API_ADMIN}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "400 Only admin can access",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"dumyacc@example.com\",\n    \"password\": \"password\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{API_ADMIN}}/auth/login",
+									"host": [
+										"{{API_ADMIN}}"
+									],
+									"path": [
+										"auth",
+										"login"
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "57"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"39-bpbR2cm1q3saOUt3CgMJUY9EUAU\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 23 Jun 2025 17:18:44 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"You are not authorized to access this route\"\n}"
+						}
+					]
+				},
+				{
+					"name": "400 Only admin can access",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"dumyacc@example.com\",\n    \"password\": \"password\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_ADMIN}}/auth/login",
+							"host": [
+								"{{API_ADMIN}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "400 Only admin can access",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"dumyacc@example.com\",\n    \"password\": \"password\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{API_ADMIN}}/auth/login",
+									"host": [
+										"{{API_ADMIN}}"
+									],
+									"path": [
+										"auth",
+										"login"
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "57"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"39-bpbR2cm1q3saOUt3CgMJUY9EUAU\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 23 Jun 2025 17:18:44 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"You are not authorized to access this route\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "User BFF",
+			"item": [
+				{
+					"name": "User",
+					"item": [
+						{
+							"name": "Get Profile User",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{TOKEN}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"dumyacc3@example.com\",\n    \"password\": \"password\"\n}"
+								},
+								"url": {
+									"raw": "{{API_MOBILE}}/me",
+									"host": [
+										"{{API_MOBILE}}"
+									],
+									"path": [
+										"me"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "200 OK",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"email\": \"dumyacc3@example.com\",\n    \"password\": \"password\"\n}"
+										},
+										"url": {
+											"raw": "{{API_MOBILE}}/me",
+											"host": [
+												"{{API_MOBILE}}"
+											],
+											"path": [
+												"me"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "287"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"11f-p8OY6OLqAkp/8LaMyi8ntJTGlqk\""
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 23 Jun 2025 16:48:18 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"Get user detail profile successfully\",\n    \"data\": {\n        \"id\": \"91c32383-a071-40ef-95d8-f499978cce0f\",\n        \"email\": \"dumyacc3@example.com\",\n        \"fullName\": \"Dummy\",\n        \"address\": \"Indonesia\",\n        \"role\": \"USER\",\n        \"lastLoginAt\": null,\n        \"ctreatedAt\": \"2025-06-22T23:58:18.888Z\",\n        \"updatedAt\": \"2025-06-22T23:58:18.888Z\"\n    }\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Post",
+					"item": [
+						{
+							"name": "Add Post",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjkxYzMyMzgzLWEwNzEtNDBlZi05NWQ4LWY0OTk5NzhjY2UwZiIsImVtYWlsIjoiZHVteWFjYzNAZXhhbXBsZS5jb20iLCJoYXNoZWRQYXNzd29yZCI6IiQyYiQxMCRrZy4zZ2I5QUUubUtBYjZaRnFYS3MuVXAxQ255c1M4VEMxby5lQmdTaVRQRUpiejBiTXo3bSIsImZ1bGxOYW1lIjoiRHVtbXkiLCJhZGRyZXNzIjoiSW5kb25lc2lhIiwicm9sZSI6IlVTRVIiLCJsYXN0TG9naW5BdCI6bnVsbCwiY3RyZWF0ZWRBdCI6IjIwMjUtMDYtMjJUMjM6NTg6MTguODg4WiIsInVwZGF0ZWRBdCI6IjIwMjUtMDYtMjJUMjM6NTg6MTguODg4WiIsImRlbGV0ZWRBdCI6bnVsbCwiaWF0IjoxNzUwNjM4Mzg4LCJleHAiOjE3NTA3MjQ3ODh9._997_Xq1zdExE-iJVvV-IbFEJlr8QBSlf3uPUELvtxg",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"title\": \"Tes add post\",\n    \"content\": \"lorem ipsum dolor amet\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{API_MOBILE}}/posts",
+									"host": [
+										"{{API_MOBILE}}"
+									],
+									"path": [
+										"posts"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "400 Validation Failed",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    // \"title\": \"Tes add post\",\n    \"content\": \"lorem ipsum dolor amet\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{API_MOBILE}}/posts",
+											"host": [
+												"{{API_MOBILE}}"
+											],
+											"path": [
+												"posts"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "84"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"54-V/AdrESALMiqatMxlfJh5g9ydTE\""
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 23 Jun 2025 14:53:10 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"Validation failed \",\n    \"details\": [\n        {\n            \"message\": \"Required\",\n            \"path\": [\n                \"title\"\n            ]\n        }\n    ]\n}"
+								},
+								{
+									"name": "200 OK",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"title\": \"Tes add post\",\n    \"content\": \"lorem ipsum dolor amet\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{API_MOBILE}}/posts",
+											"host": [
+												"{{API_MOBILE}}"
+											],
+											"path": [
+												"posts"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "295"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"127-UyIsMUusNizVziGoTDcA792xQOE\""
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 23 Jun 2025 14:53:29 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"Post created successfully\",\n    \"data\": {\n        \"id\": \"2d47cb0f-fd63-4b87-8a83-b869aa09f28f\",\n        \"title\": \"Tes add post\",\n        \"content\": \"lorem ipsum dolor amet\",\n        \"authorId\": \"91c32383-a071-40ef-95d8-f499978cce0f\",\n        \"createdAt\": \"2025-06-23T14:53:29.987Z\",\n        \"updatedAt\": \"2025-06-23T14:53:29.987Z\",\n        \"deletedAt\": null\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "Get All Post",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{TOKEN}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{API_MOBILE}}/posts",
+									"host": [
+										"{{API_MOBILE}}"
+									],
+									"path": [
+										"posts"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "200 OK",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{API_MOBILE}}/posts",
+											"host": [
+												"{{API_MOBILE}}"
+											],
+											"path": [
+												"posts"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "1545"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"609-uhW8iCAgLJmawQw3mNzJFLtJu04\""
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 23 Jun 2025 15:11:48 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"Posts retrieved successfully\",\n    \"data\": [\n        {\n            \"id\": \"b7fd4e82-6810-484f-a9da-3d256c3e3f93\",\n            \"title\": \"Tes add post\",\n            \"content\": \"lorem ipsum dolor amet\",\n            \"authorId\": \"91c32383-a071-40ef-95d8-f499978cce0f\",\n            \"createdAt\": \"2025-06-23T02:25:51.288Z\",\n            \"updatedAt\": \"2025-06-23T02:25:51.288Z\",\n            \"deletedAt\": null\n        },\n        {\n            \"id\": \"be077d59-6644-464b-a7d8-02de92fd3245\",\n            \"title\": \"Tes add post\",\n            \"content\": \"lorem ipsum dolor amet\",\n            \"authorId\": \"91c32383-a071-40ef-95d8-f499978cce0f\",\n            \"createdAt\": \"2025-06-23T02:28:15.561Z\",\n            \"updatedAt\": \"2025-06-23T02:28:15.561Z\",\n            \"deletedAt\": null\n        },\n        {\n            \"id\": \"27ad6b3a-03e3-4b1a-a58c-ed3247243876\",\n            \"title\": \"Tes add post\",\n            \"content\": \"lorem ipsum dolor amet\",\n            \"authorId\": \"91c32383-a071-40ef-95d8-f499978cce0f\",\n            \"createdAt\": \"2025-06-23T02:29:20.070Z\",\n            \"updatedAt\": \"2025-06-23T02:29:20.070Z\",\n            \"deletedAt\": null\n        },\n        {\n            \"id\": \"bde8c97c-70af-4064-9a14-a2e5b89a7da5\",\n            \"title\": \"Tes add post\",\n            \"content\": \"lorem ipsum dolor amet\",\n            \"authorId\": \"91c32383-a071-40ef-95d8-f499978cce0f\",\n            \"createdAt\": \"2025-06-23T02:30:02.789Z\",\n            \"updatedAt\": \"2025-06-23T02:30:02.789Z\",\n            \"deletedAt\": null\n        },\n        {\n            \"id\": \"401ccb9d-c4f8-4eec-8b58-cc72a6cc18a4\",\n            \"title\": \"Tes add post\",\n            \"content\": \"lorem ipsum dolor amet\",\n            \"authorId\": \"91c32383-a071-40ef-95d8-f499978cce0f\",\n            \"createdAt\": \"2025-06-23T02:30:35.888Z\",\n            \"updatedAt\": \"2025-06-23T02:30:35.888Z\",\n            \"deletedAt\": null\n        },\n        {\n            \"id\": \"2d47cb0f-fd63-4b87-8a83-b869aa09f28f\",\n            \"title\": \"Tes add post\",\n            \"content\": \"lorem ipsum dolor amet\",\n            \"authorId\": \"91c32383-a071-40ef-95d8-f499978cce0f\",\n            \"createdAt\": \"2025-06-23T14:53:29.987Z\",\n            \"updatedAt\": \"2025-06-23T14:53:29.987Z\",\n            \"deletedAt\": null\n        }\n    ]\n}"
+								}
+							]
+						},
+						{
+							"name": "Get detail post",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{TOKEN}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{API_MOBILE}}/posts/b7fd4e82-6810-484f-a9da-3d256c3e3f4",
+									"host": [
+										"{{API_MOBILE}}"
+									],
+									"path": [
+										"posts",
+										"b7fd4e82-6810-484f-a9da-3d256c3e3f4"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "200 OK",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{API_MOBILE}}/posts/b7fd4e82-6810-484f-a9da-3d256c3e3f93",
+											"host": [
+												"{{API_MOBILE}}"
+											],
+											"path": [
+												"posts",
+												"b7fd4e82-6810-484f-a9da-3d256c3e3f93"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "297"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"129-bjLR7zEB3qn2spWIMgq1EYNVhTc\""
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 23 Jun 2025 15:16:19 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"Post retrieved successfully\",\n    \"data\": {\n        \"id\": \"b7fd4e82-6810-484f-a9da-3d256c3e3f93\",\n        \"title\": \"Tes add post\",\n        \"content\": \"lorem ipsum dolor amet\",\n        \"authorId\": \"91c32383-a071-40ef-95d8-f499978cce0f\",\n        \"createdAt\": \"2025-06-23T02:25:51.288Z\",\n        \"updatedAt\": \"2025-06-23T02:25:51.288Z\",\n        \"deletedAt\": null\n    }\n}"
+								},
+								{
+									"name": "404 Not found",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{API_MOBILE}}/posts/b7fd4e82-6810-484f-a9da-3d256c3e3f4",
+											"host": [
+												"{{API_MOBILE}}"
+											],
+											"path": [
+												"posts",
+												"b7fd4e82-6810-484f-a9da-3d256c3e3f4"
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "72"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"48-DmBXhcyz5h5Ki+ODyEfb9IQpS6w\""
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 23 Jun 2025 15:16:28 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"Post with id b7fd4e82-6810-484f-a9da-3d256c3e3f4 not found\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Patch Post",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{TOKEN}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    // \"title\": \"Test Updated\", \n    \"content\": \"ipsum dolor amet lorem\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{API_MOBILE}}/posts/b7fd4e82-6810-484f-a9da-3d256c3e3f93",
+									"host": [
+										"{{API_MOBILE}}"
+									],
+									"path": [
+										"posts",
+										"b7fd4e82-6810-484f-a9da-3d256c3e3f93"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "200 OK",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"title\": \"Test Updated\", \n    \"content\": \"ipsum dolor amet lorem\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{API_MOBILE}}/posts/b7fd4e82-6810-484f-a9da-3d256c3e3f93",
+											"host": [
+												"{{API_MOBILE}}"
+											],
+											"path": [
+												"posts",
+												"b7fd4e82-6810-484f-a9da-3d256c3e3f93"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "295"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"127-ccdLT8uOuIEtGOiKhZW9sGZeocs\""
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 23 Jun 2025 15:27:51 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"Post updated successfully\",\n    \"data\": {\n        \"id\": \"b7fd4e82-6810-484f-a9da-3d256c3e3f93\",\n        \"title\": \"Test Updated\",\n        \"content\": \"ipsum dolor amet lorem\",\n        \"authorId\": \"91c32383-a071-40ef-95d8-f499978cce0f\",\n        \"createdAt\": \"2025-06-23T02:25:51.288Z\",\n        \"updatedAt\": \"2025-06-23T15:27:51.614Z\",\n        \"deletedAt\": null\n    }\n}"
+								},
+								{
+									"name": "401 Not AuthorID this post",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"title\": \"Test Updated\", \n    \"content\": \"ipsum dolor amet lorem\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{API_MOBILE}}/posts/2d47cb0f-fd63-4b87-8a83-b869aa09f28f",
+											"host": [
+												"{{API_MOBILE}}"
+											],
+											"path": [
+												"posts",
+												"2d47cb0f-fd63-4b87-8a83-b869aa09f28f"
+											]
+										}
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "56"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"38-lI789+8x4ddHLXIf9A0Qi9uKVLg\""
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 23 Jun 2025 15:28:28 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"You are not authorized to update this post\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Delete Post",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{TOKEN}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    // \"title\": \"Test Updated\", \n    \"content\": \"ipsum dolor amet lorem\"\n}"
+								},
+								"url": {
+									"raw": "{{API_MOBILE}}/posts/b7fd4e82-6810-484f-a9da-3d256c3e3f93",
+									"host": [
+										"{{API_MOBILE}}"
+									],
+									"path": [
+										"posts",
+										"b7fd4e82-6810-484f-a9da-3d256c3e3f93"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "401 Not Author ID",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    // \"title\": \"Test Updated\", \n    \"content\": \"ipsum dolor amet lorem\"\n}"
+										},
+										"url": {
+											"raw": "{{API_MOBILE}}/posts/2d47cb0f-fd63-4b87-8a83-b869aa09f28f",
+											"host": [
+												"{{API_MOBILE}}"
+											],
+											"path": [
+												"posts",
+												"2d47cb0f-fd63-4b87-8a83-b869aa09f28f"
+											]
+										}
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "56"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"38-/ModxtBNjTZzSgnqzC2DZ0dvMDk\""
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 23 Jun 2025 15:53:30 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"You are not authorized to delete this post\"\n}"
+								},
+								{
+									"name": "204 OK",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    // \"title\": \"Test Updated\", \n    \"content\": \"ipsum dolor amet lorem\"\n}"
+										},
+										"url": {
+											"raw": "{{API_MOBILE}}/posts/b7fd4e82-6810-484f-a9da-3d256c3e3f93",
+											"host": [
+												"{{API_MOBILE}}"
+											],
+											"path": [
+												"posts",
+												"b7fd4e82-6810-484f-a9da-3d256c3e3f93"
+											]
+										}
+									},
+									"status": "No Content",
+									"code": 204,
+									"_postman_previewlanguage": "plain",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"27-ApdGuEKF5DvnjukxrpHUpaQnnd8\""
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 23 Jun 2025 15:54:41 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": null
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Auth",
+					"item": [
+						{
+							"name": "Register",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\" : \"dumyacc3@example.com\",\n    \"fullName\": \"Dummy\",\n    \"password\": \"password\",\n    \"confirmPassword\": \"password\",\n    \"address\": \"Indonesia\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{API_MOBILE}}/auth/register",
+									"host": [
+										"{{API_MOBILE}}"
+									],
+									"path": [
+										"auth",
+										"register"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "201 OK",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"email\" : \"dumyacc@example.com\",\n    \"fullName\": \"Dummy\",\n    \"password\": \"password\",\n    \"confirmPassword\": \"password\",\n    \"address\": \"Indonesia\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{API_MOBILE}}/auth/register",
+											"host": [
+												"{{API_MOBILE}}"
+											],
+											"path": [
+												"auth",
+												"register"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "375"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"177-S/TZFzZTgiL5WAJHzmC4SLkI4QA\""
+										},
+										{
+											"key": "Date",
+											"value": "Sun, 22 Jun 2025 23:47:14 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"User registered successfully\",\n    \"data\": {\n        \"id\": \"d076056e-bd04-4340-b8da-2de379b983ce\",\n        \"email\": \"dumyacc@example.com\",\n        \"hashedPassword\": \"$2b$10$HsPML9InfOg1yh1l0vTHLu.9EGXNmEhh/g798Nwu2j3JoaK.u7UAO\",\n        \"fullName\": \"Dummy\",\n        \"address\": \"Indonesia\",\n        \"role\": \"USER\",\n        \"lastLoginAt\": null,\n        \"ctreatedAt\": \"2025-06-22T23:47:14.019Z\",\n        \"updatedAt\": \"2025-06-22T23:47:14.019Z\",\n        \"deletedAt\": null\n    }\n}"
+								},
+								{
+									"name": "409 Conflict",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"email\" : \"dumyacc@example.com\",\n    \"fullName\": \"Dummy\",\n    \"password\": \"password\",\n    \"confirmPassword\": \"password\",\n    \"address\": \"Indonesia\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{API_MOBILE}}/auth/register",
+											"host": [
+												"{{API_MOBILE}}"
+											],
+											"path": [
+												"auth",
+												"register"
+											]
+										}
+									},
+									"status": "Conflict",
+									"code": 409,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "49"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"31-kAANIpXFuQ6I53ZbDDsMLt8aPOU\""
+										},
+										{
+											"key": "Date",
+											"value": "Sun, 22 Jun 2025 23:49:24 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"User with this email already exists\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Login",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"dumyacc3@example.com\",\n    \"password\": \"password\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{API_MOBILE}}/auth/login",
+									"host": [
+										"{{API_MOBILE}}"
+									],
+									"path": [
+										"auth",
+										"login"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "200 OK",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"email\": \"dumyacc3@example.com\",\n    \"password\": \"password\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{API_MOBILE}}/auth/login",
+											"host": [
+												"{{API_MOBILE}}"
+											],
+											"path": [
+												"auth",
+												"login"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "601"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"259-ViHVWKhs0UHBhiJZXAAXpCtnIro\""
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 23 Jun 2025 14:56:49 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"Login successful\",\n    \"data\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjkxYzMyMzgzLWEwNzEtNDBlZi05NWQ4LWY0OTk5NzhjY2UwZiIsImVtYWlsIjoiZHVteWFjYzNAZXhhbXBsZS5jb20iLCJoYXNoZWRQYXNzd29yZCI6IiQyYiQxMCRrZy4zZ2I5QUUubUtBYjZaRnFYS3MuVXAxQ255c1M4VEMxby5lQmdTaVRQRUpiejBiTXo3bSIsImZ1bGxOYW1lIjoiRHVtbXkiLCJhZGRyZXNzIjoiSW5kb25lc2lhIiwicm9sZSI6IlVTRVIiLCJsYXN0TG9naW5BdCI6bnVsbCwiY3RyZWF0ZWRBdCI6IjIwMjUtMDYtMjJUMjM6NTg6MTguODg4WiIsInVwZGF0ZWRBdCI6IjIwMjUtMDYtMjJUMjM6NTg6MTguODg4WiIsImRlbGV0ZWRBdCI6bnVsbCwiaWF0IjoxNzUwNjkwNjA5LCJleHAiOjE3NTA3NzcwMDl9.qUDy6dEQZLpao6MhdY-_tEVzXbSUr95rgx2PCv90ahw\"\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Auth",
+					"item": [
+						{
+							"name": "Register",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\" : \"dumyacc3@example.com\",\n    \"fullName\": \"Dummy\",\n    \"password\": \"password\",\n    \"confirmPassword\": \"password\",\n    \"address\": \"Indonesia\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{API_MOBILE}}/auth/register",
+									"host": [
+										"{{API_MOBILE}}"
+									],
+									"path": [
+										"auth",
+										"register"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "201 OK",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"email\" : \"dumyacc@example.com\",\n    \"fullName\": \"Dummy\",\n    \"password\": \"password\",\n    \"confirmPassword\": \"password\",\n    \"address\": \"Indonesia\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{API_MOBILE}}/auth/register",
+											"host": [
+												"{{API_MOBILE}}"
+											],
+											"path": [
+												"auth",
+												"register"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "375"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"177-S/TZFzZTgiL5WAJHzmC4SLkI4QA\""
+										},
+										{
+											"key": "Date",
+											"value": "Sun, 22 Jun 2025 23:47:14 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"User registered successfully\",\n    \"data\": {\n        \"id\": \"d076056e-bd04-4340-b8da-2de379b983ce\",\n        \"email\": \"dumyacc@example.com\",\n        \"hashedPassword\": \"$2b$10$HsPML9InfOg1yh1l0vTHLu.9EGXNmEhh/g798Nwu2j3JoaK.u7UAO\",\n        \"fullName\": \"Dummy\",\n        \"address\": \"Indonesia\",\n        \"role\": \"USER\",\n        \"lastLoginAt\": null,\n        \"ctreatedAt\": \"2025-06-22T23:47:14.019Z\",\n        \"updatedAt\": \"2025-06-22T23:47:14.019Z\",\n        \"deletedAt\": null\n    }\n}"
+								},
+								{
+									"name": "409 Conflict",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"email\" : \"dumyacc@example.com\",\n    \"fullName\": \"Dummy\",\n    \"password\": \"password\",\n    \"confirmPassword\": \"password\",\n    \"address\": \"Indonesia\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{API_MOBILE}}/auth/register",
+											"host": [
+												"{{API_MOBILE}}"
+											],
+											"path": [
+												"auth",
+												"register"
+											]
+										}
+									},
+									"status": "Conflict",
+									"code": 409,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "49"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"31-kAANIpXFuQ6I53ZbDDsMLt8aPOU\""
+										},
+										{
+											"key": "Date",
+											"value": "Sun, 22 Jun 2025 23:49:24 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"User with this email already exists\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Login",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"dumyacc3@example.com\",\n    \"password\": \"password\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{API_MOBILE}}/auth/login",
+									"host": [
+										"{{API_MOBILE}}"
+									],
+									"path": [
+										"auth",
+										"login"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "200 OK",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"email\": \"dumyacc3@example.com\",\n    \"password\": \"password\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{API_MOBILE}}/auth/login",
+											"host": [
+												"{{API_MOBILE}}"
+											],
+											"path": [
+												"auth",
+												"login"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "601"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"259-ViHVWKhs0UHBhiJZXAAXpCtnIro\""
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 23 Jun 2025 14:56:49 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"Login successful\",\n    \"data\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjkxYzMyMzgzLWEwNzEtNDBlZi05NWQ4LWY0OTk5NzhjY2UwZiIsImVtYWlsIjoiZHVteWFjYzNAZXhhbXBsZS5jb20iLCJoYXNoZWRQYXNzd29yZCI6IiQyYiQxMCRrZy4zZ2I5QUUubUtBYjZaRnFYS3MuVXAxQ255c1M4VEMxby5lQmdTaVRQRUpiejBiTXo3bSIsImZ1bGxOYW1lIjoiRHVtbXkiLCJhZGRyZXNzIjoiSW5kb25lc2lhIiwicm9sZSI6IlVTRVIiLCJsYXN0TG9naW5BdCI6bnVsbCwiY3RyZWF0ZWRBdCI6IjIwMjUtMDYtMjJUMjM6NTg6MTguODg4WiIsInVwZGF0ZWRBdCI6IjIwMjUtMDYtMjJUMjM6NTg6MTguODg4WiIsImRlbGV0ZWRBdCI6bnVsbCwiaWF0IjoxNzUwNjkwNjA5LCJleHAiOjE3NTA3NzcwMDl9.qUDy6dEQZLpao6MhdY-_tEVzXbSUr95rgx2PCv90ahw\"\n}"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Admin BFF",
+			"item": [
+				{
+					"name": "Auth",
+					"item": [
+						{
+							"name": "Login",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"dumyacc@example.com\",\n    \"password\": \"password\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{API_ADMIN}}/auth/login",
+									"host": [
+										"{{API_ADMIN}}"
+									],
+									"path": [
+										"auth",
+										"login"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "200 OK",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"email\": \"admin@example.com\",\n    \"password\": \"password\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{API_ADMIN}}/auth/login",
+											"host": [
+												"{{API_ADMIN}}"
+											],
+											"path": [
+												"auth",
+												"login"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "599"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"257-vzbFyQZMpvfrhUgFmuvgrgCc9js\""
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 23 Jun 2025 17:16:30 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"Login successful\",\n    \"data\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjkxYzMyMzgzLWEwNzEtNDBlZi05NWQ4LWY0OTk5NzhjY2UwZiIsImVtYWlsIjoiYWRtaW5AZXhhbXBsZS5jb20iLCJoYXNoZWRQYXNzd29yZCI6IiQyYiQxMCRrZy4zZ2I5QUUubUtBYjZaRnFYS3MuVXAxQ255c1M4VEMxby5lQmdTaVRQRUpiejBiTXo3bSIsImZ1bGxOYW1lIjoiRHVtbXkiLCJhZGRyZXNzIjoiSW5kb25lc2lhIiwicm9sZSI6IkFETUlOIiwibGFzdExvZ2luQXQiOm51bGwsImN0cmVhdGVkQXQiOiIyMDI1LTA2LTIyVDIzOjU4OjE4Ljg4OFoiLCJ1cGRhdGVkQXQiOiIyMDI1LTA2LTIyVDIzOjU4OjE4Ljg4OFoiLCJkZWxldGVkQXQiOm51bGwsImlhdCI6MTc1MDY5ODk5MCwiZXhwIjoxNzUwNzg1MzkwfQ.sc0w34pFvegMF5rBIvH8TAjrC3ZMoiIndUWLPIAJ_RM\"\n}"
+								},
+								{
+									"name": "400 Only admin can access",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"email\": \"dumyacc@example.com\",\n    \"password\": \"password\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{API_ADMIN}}/auth/login",
+											"host": [
+												"{{API_ADMIN}}"
+											],
+											"path": [
+												"auth",
+												"login"
+											]
+										}
+									},
+									"status": "Forbidden",
+									"code": 403,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "57"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"39-bpbR2cm1q3saOUt3CgMJUY9EUAU\""
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 23 Jun 2025 17:18:44 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"You are not authorized to access this route\"\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Auth",
+					"item": [
+						{
+							"name": "Login",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"dumyacc@example.com\",\n    \"password\": \"password\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{API_ADMIN}}/auth/login",
+									"host": [
+										"{{API_ADMIN}}"
+									],
+									"path": [
+										"auth",
+										"login"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "200 OK",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"email\": \"admin@example.com\",\n    \"password\": \"password\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{API_ADMIN}}/auth/login",
+											"host": [
+												"{{API_ADMIN}}"
+											],
+											"path": [
+												"auth",
+												"login"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "599"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"257-vzbFyQZMpvfrhUgFmuvgrgCc9js\""
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 23 Jun 2025 17:16:30 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"Login successful\",\n    \"data\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjkxYzMyMzgzLWEwNzEtNDBlZi05NWQ4LWY0OTk5NzhjY2UwZiIsImVtYWlsIjoiYWRtaW5AZXhhbXBsZS5jb20iLCJoYXNoZWRQYXNzd29yZCI6IiQyYiQxMCRrZy4zZ2I5QUUubUtBYjZaRnFYS3MuVXAxQ255c1M4VEMxby5lQmdTaVRQRUpiejBiTXo3bSIsImZ1bGxOYW1lIjoiRHVtbXkiLCJhZGRyZXNzIjoiSW5kb25lc2lhIiwicm9sZSI6IkFETUlOIiwibGFzdExvZ2luQXQiOm51bGwsImN0cmVhdGVkQXQiOiIyMDI1LTA2LTIyVDIzOjU4OjE4Ljg4OFoiLCJ1cGRhdGVkQXQiOiIyMDI1LTA2LTIyVDIzOjU4OjE4Ljg4OFoiLCJkZWxldGVkQXQiOm51bGwsImlhdCI6MTc1MDY5ODk5MCwiZXhwIjoxNzUwNzg1MzkwfQ.sc0w34pFvegMF5rBIvH8TAjrC3ZMoiIndUWLPIAJ_RM\"\n}"
+								},
+								{
+									"name": "400 Only admin can access",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"email\": \"dumyacc@example.com\",\n    \"password\": \"password\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{API_ADMIN}}/auth/login",
+											"host": [
+												"{{API_ADMIN}}"
+											],
+											"path": [
+												"auth",
+												"login"
+											]
+										}
+									},
+									"status": "Forbidden",
+									"code": 403,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "57"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"39-bpbR2cm1q3saOUt3CgMJUY9EUAU\""
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 23 Jun 2025 17:18:44 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"You are not authorized to access this route\"\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Post",
+					"item": [
+						{
+							"name": "Get All Post",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{TOKEN_API}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{API_ADMIN}}/posts",
+									"host": [
+										"{{API_ADMIN}}"
+									],
+									"path": [
+										"posts"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "200OK",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{API_ADMIN}}/posts",
+											"host": [
+												"{{API_ADMIN}}"
+											],
+											"path": [
+												"posts"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "798"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"31e-CZhuB7gNIGn56A4Wgw+wCw+l6BA\""
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 23 Jun 2025 17:24:12 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"Posts retrieved successfully\",\n    \"data\": [\n        {\n            \"id\": \"be077d59-6644-464b-a7d8-02de92fd3245\",\n            \"title\": \"Tes add post\",\n            \"content\": \"lorem ipsum dolor amet\",\n            \"authorId\": \"91c32383-a071-40ef-95d8-f499978cce0f\",\n            \"createdAt\": \"2025-06-23T02:28:15.561Z\",\n            \"updatedAt\": \"2025-06-23T02:28:15.561Z\",\n            \"deletedAt\": null\n        },\n        {\n            \"id\": \"401ccb9d-c4f8-4eec-8b58-cc72a6cc18a4\",\n            \"title\": \"Tes add post\",\n            \"content\": \"lorem ipsum dolor amet\",\n            \"authorId\": \"91c32383-a071-40ef-95d8-f499978cce0f\",\n            \"createdAt\": \"2025-06-23T02:30:35.888Z\",\n            \"updatedAt\": \"2025-06-23T02:30:35.888Z\",\n            \"deletedAt\": null\n        },\n        {\n            \"id\": \"2d47cb0f-fd63-4b87-8a83-b869aa09f28f\",\n            \"title\": \"Tes add post\",\n            \"content\": \"lorem ipsum dolor amet\",\n            \"authorId\": \"d076056e-bd04-4340-b8da-2de379b983ce\",\n            \"createdAt\": \"2025-06-23T14:53:29.987Z\",\n            \"updatedAt\": \"2025-06-23T14:53:29.987Z\",\n            \"deletedAt\": null\n        }\n    ]\n}"
+								},
+								{
+									"name": "403 User can not access",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{API_ADMIN}}/posts",
+											"host": [
+												"{{API_ADMIN}}"
+											],
+											"path": [
+												"posts"
+											]
+										}
+									},
+									"status": "Forbidden",
+									"code": 403,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "87"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"57-pNqQ16PbCrsIecZgt6ilhk4z8+4\""
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 23 Jun 2025 17:24:24 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"You do not have permission to access this resource. Required roles: ADMIN\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Get All Post",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{TOKEN_API}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{API_ADMIN}}/posts",
+									"host": [
+										"{{API_ADMIN}}"
+									],
+									"path": [
+										"posts"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "200OK",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{API_ADMIN}}/posts",
+											"host": [
+												"{{API_ADMIN}}"
+											],
+											"path": [
+												"posts"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "798"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"31e-CZhuB7gNIGn56A4Wgw+wCw+l6BA\""
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 23 Jun 2025 17:24:12 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"Posts retrieved successfully\",\n    \"data\": [\n        {\n            \"id\": \"be077d59-6644-464b-a7d8-02de92fd3245\",\n            \"title\": \"Tes add post\",\n            \"content\": \"lorem ipsum dolor amet\",\n            \"authorId\": \"91c32383-a071-40ef-95d8-f499978cce0f\",\n            \"createdAt\": \"2025-06-23T02:28:15.561Z\",\n            \"updatedAt\": \"2025-06-23T02:28:15.561Z\",\n            \"deletedAt\": null\n        },\n        {\n            \"id\": \"401ccb9d-c4f8-4eec-8b58-cc72a6cc18a4\",\n            \"title\": \"Tes add post\",\n            \"content\": \"lorem ipsum dolor amet\",\n            \"authorId\": \"91c32383-a071-40ef-95d8-f499978cce0f\",\n            \"createdAt\": \"2025-06-23T02:30:35.888Z\",\n            \"updatedAt\": \"2025-06-23T02:30:35.888Z\",\n            \"deletedAt\": null\n        },\n        {\n            \"id\": \"2d47cb0f-fd63-4b87-8a83-b869aa09f28f\",\n            \"title\": \"Tes add post\",\n            \"content\": \"lorem ipsum dolor amet\",\n            \"authorId\": \"d076056e-bd04-4340-b8da-2de379b983ce\",\n            \"createdAt\": \"2025-06-23T14:53:29.987Z\",\n            \"updatedAt\": \"2025-06-23T14:53:29.987Z\",\n            \"deletedAt\": null\n        }\n    ]\n}"
+								},
+								{
+									"name": "403 User can not access",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{API_ADMIN}}/posts",
+											"host": [
+												"{{API_ADMIN}}"
+											],
+											"path": [
+												"posts"
+											]
+										}
+									},
+									"status": "Forbidden",
+									"code": 403,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "87"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"57-pNqQ16PbCrsIecZgt6ilhk4z8+4\""
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 23 Jun 2025 17:24:24 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"You do not have permission to access this resource. Required roles: ADMIN\"\n}"
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "API_MOBILE",
+			"value": "http://localhost:3001/api/user/v1",
+			"type": "string"
+		},
+		{
+			"key": "API_ADMIN",
+			"value": "http://localhost:3000/api/user",
+			"type": "string"
+		},
+		{
+			"key": "TOKEN",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjkxYzMyMzgzLWEwNzEtNDBlZi05NWQ4LWY0OTk5NzhjY2UwZiIsImVtYWlsIjoiZHVteWFjYzNAZXhhbXBsZS5jb20iLCJoYXNoZWRQYXNzd29yZCI6IiQyYiQxMCRrZy4zZ2I5QUUubUtBYjZaRnFYS3MuVXAxQ255c1M4VEMxby5lQmdTaVRQRUpiejBiTXo3bSIsImZ1bGxOYW1lIjoiRHVtbXkiLCJhZGRyZXNzIjoiSW5kb25lc2lhIiwicm9sZSI6IlVTRVIiLCJsYXN0TG9naW5BdCI6bnVsbCwiY3RyZWF0ZWRBdCI6IjIwMjUtMDYtMjJUMjM6NTg6MTguODg4WiIsInVwZGF0ZWRBdCI6IjIwMjUtMDYtMjJUMjM6NTg6MTguODg4WiIsImRlbGV0ZWRBdCI6bnVsbCwiaWF0IjoxNzUwNjM4Mzg4LCJleHAiOjE3NTA3MjQ3ODh9._997_Xq1zdExE-iJVvV-IbFEJlr8QBSlf3uPUELvtxg",
+			"type": "string"
+		},
+		{
+			"key": "TOKEN_API",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjkxYzMyMzgzLWEwNzEtNDBlZi05NWQ4LWY0OTk5NzhjY2UwZiIsImVtYWlsIjoiYWRtaW5AZXhhbXBsZS5jb20iLCJoYXNoZWRQYXNzd29yZCI6IiQyYiQxMCRrZy4zZ2I5QUUubUtBYjZaRnFYS3MuVXAxQ255c1M4VEMxby5lQmdTaVRQRUpiejBiTXo3bSIsImZ1bGxOYW1lIjoiRHVtbXkiLCJhZGRyZXNzIjoiSW5kb25lc2lhIiwicm9sZSI6IkFETUlOIiwibGFzdExvZ2luQXQiOm51bGwsImN0cmVhdGVkQXQiOiIyMDI1LTA2LTIyVDIzOjU4OjE4Ljg4OFoiLCJ1cGRhdGVkQXQiOiIyMDI1LTA2LTIyVDIzOjU4OjE4Ljg4OFoiLCJkZWxldGVkQXQiOm51bGwsImlhdCI6MTc1MDY5ODk5MCwiZXhwIjoxNzUwNzg1MzkwfQ.sc0w34pFvegMF5rBIvH8TAjrC3ZMoiIndUWLPIAJ_RM",
+			"type": "string"
+		}
+	]
+}

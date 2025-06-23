@@ -71,6 +71,10 @@ Replace `<app-name>` and `<lib-name>` with your desired names.
 - **Code Formatting**: Ensure consistent code style with Prettier.
 - **Task Running**: Leverage Nx's task running to execute commands across multiple projects efficiently.
 
+## Documentation
+
+Using postman collection [click here](https://github.com/iqbal-rahmatullah/nx-monorepo-boilerplate/tree/main/docs)
+
 ## Domain-Driven Design (DDD) Implementation
 
 ![My experience with Domain-Driven Design part 1: naming - Janmeppe.com 👋](https://www.janmeppe.com/assets/2023-06-02-my-experience-with-domain-driven-design-part-1/2023-06-02-17-48-15.png)
