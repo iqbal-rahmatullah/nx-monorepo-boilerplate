@@ -1,5 +1,4 @@
-import { Role } from '@prisma/client';
-import { loginCase, roleGuard } from '@store/auth';
+import { loginCase } from '@store/auth';
 import { Router } from 'express';
 
 const authRouter = Router();
