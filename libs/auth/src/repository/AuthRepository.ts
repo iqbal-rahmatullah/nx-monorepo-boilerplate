@@ -2,8 +2,21 @@ import { userPrisma } from '@stores/shared';
 import { IAuthRepository } from './IAuthRepository';
 import { User } from '@prisma/client';
 import { RegisterUserDTO } from '../dto/register_user_dto';
+import { InsertSessionDTO } from '../dto/insert_session_dto';
 
 export class AuthRepository implements IAuthRepository {
+  async insertSession(data: InsertSessionDTO): Promise<void> {
+    await userPrisma.session.create({
+      data: {
+        userId: data.userId,
+        token: data.token,
+        expiresAt: data.expiredAt,
+        userAgent: data.userAgent,
+        ipAddress: data.ipAddress,
+      },
+    });
+  }
+
   async createUser(data: RegisterUserDTO): Promise<User> {
     return await userPrisma.user.create({
       data: {
