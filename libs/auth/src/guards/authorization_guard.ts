@@ -24,13 +24,13 @@ export const authorizationGuard = async (
   next: NextFunction
 ) => {
   const logger = new ServerLogger();
+
   try {
     const authRepository: IAuthRepository = new AuthRepository();
 
     const token = req.headers.authorization?.split(' ')[1];
 
     if (!token) {
-      console.log('Authorization token is missing');
       throw new UnauthorizedException('Authorization token is missing');
     }
 
@@ -40,7 +40,6 @@ export const authorizationGuard = async (
       throw new UnauthorizedException('Invalid authorization token');
     }
 
-    logger.info(`Authorization token decoded and isert to database ${decoded}`);
     // Update or insert session last_used_at in the database
     await authRepository.updateOrInsertSession((decoded as User).id, token);
 

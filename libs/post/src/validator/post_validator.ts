@@ -5,3 +5,7 @@ export const postValidator = z.object({
   content: z.string().min(1, 'Content is required'),
   authorId: z.string().uuid('Author ID must be a valid UUID'),
 });
+
+export const updatePostValidator = postValidator.omit({
+  authorId: true,
+});
