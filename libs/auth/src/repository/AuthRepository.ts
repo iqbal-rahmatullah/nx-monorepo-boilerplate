@@ -1,4 +1,4 @@
-import { userPrisma } from '@stores/shared';
+import { authPrisma } from '@stores/shared';
 import { IAuthRepository } from './IAuthRepository';
 import { User } from '@prisma/client';
 import { RegisterUserDTO } from '../dto/register_user_dto';
@@ -6,7 +6,7 @@ import { InsertSessionDTO } from '../dto/insert_session_dto';
 
 export class AuthRepository implements IAuthRepository {
   async updateOrInsertSession(userId: string, token: string): Promise<void> {
-    await userPrisma.session.upsert({
+    await authPrisma.session.upsert({
       where: { userId: userId, token: token },
       update: {
         lastUsedAt: new Date(),
@@ -21,7 +21,7 @@ export class AuthRepository implements IAuthRepository {
   }
 
   async insertSession(data: InsertSessionDTO): Promise<void> {
-    await userPrisma.session.create({
+    await authPrisma.session.create({
       data: {
         userId: data.userId,
         token: data.token,
@@ -33,7 +33,7 @@ export class AuthRepository implements IAuthRepository {
   }
 
   async createUser(data: RegisterUserDTO): Promise<User> {
-    return await userPrisma.user.create({
+    return await authPrisma.user.create({
       data: {
         email: data.email,
         hashedPassword: data.hashedPassword,
@@ -44,7 +44,7 @@ export class AuthRepository implements IAuthRepository {
   }
 
   async findByEmail(email: string): Promise<User | null> {
-    return await userPrisma.user.findUnique({
+    return await authPrisma.user.findUnique({
       where: { email },
     });
   }
