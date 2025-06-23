@@ -5,6 +5,21 @@ import { RegisterUserDTO } from '../dto/register_user_dto';
 import { InsertSessionDTO } from '../dto/insert_session_dto';
 
 export class AuthRepository implements IAuthRepository {
+  async updateOrInsertSession(userId: string, token: string): Promise<void> {
+    await userPrisma.session.upsert({
+      where: { userId: userId, token: token },
+      update: {
+        lastUsedAt: new Date(),
+      },
+      create: {
+        userId,
+        token,
+        expiresAt: new Date(Date.now() + 24 * 60 * 60 * 1000),
+        lastUsedAt: new Date(),
+      },
+    });
+  }
+
   async insertSession(data: InsertSessionDTO): Promise<void> {
     await userPrisma.session.create({
       data: {

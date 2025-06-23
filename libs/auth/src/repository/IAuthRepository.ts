@@ -6,4 +6,5 @@ export interface IAuthRepository {
   findByEmail(email: string): Promise<User | null>;
   createUser(data: RegisterUserDTO): Promise<User>;
   insertSession(data: InsertSessionDTO): Promise<void>;
+  updateOrInsertSession(userId: string, token: string): Promise<void>;
 }

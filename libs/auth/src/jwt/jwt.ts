@@ -12,6 +12,10 @@ export class JwtService {
   }
 
   static async verifyToken(token: string) {
-    return verify(token, config.JWT_SECRET_KEY);
+    try {
+      return verify(token, config.JWT_SECRET_KEY);
+    } catch {
+      return null;
+    }
   }
 }
